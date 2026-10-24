@@ -20,6 +20,12 @@ const reasoningEffortType = Type.Union(
 export function openAiType() {
   return Type.Object(
     {
+      model: Type.Optional(
+        Type.String({
+          description: "OpenRouter model identifier used to fetch context and completion token limits.",
+          examples: ["openai/gpt-4o", "deepseek/deepseek-r1"],
+        })
+      ),
       tokenCountLimit: Type.Integer({
         default: 124000,
         description:
